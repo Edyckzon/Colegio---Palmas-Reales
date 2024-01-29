@@ -1,1 +1,1 @@
-# Colegio---Palmas-Reales
+# Colegio_Palmas_Reales
