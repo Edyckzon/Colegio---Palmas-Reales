@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<title></title>
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+<body class="bg-warning">
+
+	<div class="container" layout:fragment="page-content">
+
+		<div class="bg-dark p-3 mt-2 rounded-3">
+			<h2 class="text-center text-light">LISTADO DE AUTORES</h2>
+			<a th:href="@{/}" class="btn btn-primary m-2">Atras</a> <a
+				th:href="@{/nuevoAutor}" class="btn btn-success text-light ml-5">Nuevo</a>
+		</div>
+
+		<table class="table table-dark table-striped mt-2">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>NOMBRES</th>
+					<th>APELLIDOS</th>
+					<th>NACIONALIDAD</th>
+					<th>ACCIONES</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="aut:${listaAutores}">
+					<td th:text="${aut.id_autor}"></td>
+					<td th:text="${aut.nombres}"></td>
+					<td th:text="${aut.apellidos}"></td>
+					<td th:text="${aut.nacionalidad}"></td>
+					<td><a class="btn btn-warning"
+						th:href="@{/editarAutor/{id} (id=${aut.id_autor})}">Editar</a> <a
+						class="btn btn-danger"
+						th:href="@{/borrarAutor/{id} (id=${aut.id_autor})}">Borrar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!--OTRO SCRIPTS PARA PAGINAS-->
+	<th:block layout:fragment="page-scripts">
+
+	</th:block>
+
+</body>
+</html>

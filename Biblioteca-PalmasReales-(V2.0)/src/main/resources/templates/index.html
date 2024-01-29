@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+<title></title>
+
+</head>
+<body class="bg-warning">
+
+	<div class="container-fluid" layout:fragment="page-content">
+		<div class="row">
+			<div class="col-sm-12 text-center mb-3">
+				<div class="page-header">
+					<h1 class="display-6 font-weight-bold text-primary text-center">Bienvenido
+						a la página principal de la biblioteca</h1>
+				</div>
+			</div>
+		</div>
+		<!-- IMAGEN Y DESCRIPCION DEL CONTENIDO DE LA PAGINA-->
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-3 text-center">
+				<img th:src="@{/icons/logo.png}" alt="logo"
+					class="img-fluid mb-4 mb-md-0  w-50">
+			</div>
+			<div class="col-sm-12 col-md-8 text-justify lead">
+				Mantengamos a los niños leyendo: <strong class="text-danger"><i
+					class="zmdi zmdi-alert-triangle"></i> &nbsp; ¡Importante! </strong>La
+				práctica de la lectura es fundamental en la educación. Por ello es
+				muy importante que que los niños de inicial y primaria sigan
+				desarrollando sus capacidades lectoras con libros e historias
+				relevantes para ellos incluso desde sus hogares.
+			</div>
+		</div>
+
+		<div class="container p-3">
+			<p>Las bibliotecas son templos de conocimiento, espacios de
+				esparcimiento, colaboración y generación de ideas y proyectos. Las
+				bibliotecas son escenarios de importancia sustantiva para el
+				desarrollo de una sociedad, por su vocación de servicios, su
+				intención comunitaria y compromiso social.</p>
+
+			<section class="room top" id="room">
+				<div class="container">
+					<div class="heading_top flex1">
+						<div class="heading">
+							<h1>LIBROS DE LA SEMANA</h1>
+							<h5>Zona juvenil</h5>
+						</div>
+
+					</div>
+
+					<div class="content grid">
+						<div class="box">
+							<div class="img">
+								<img th:src="@{/icons/libro1.jpg}" width="400px" height="400px" alt="libro1">
+							</div>
+							<div class="text">
+
+								<h3>Nunca sere un super heroe</h3>
+								<p>Ésta es la historia de un niño que ha comenzado a hacerse
+									hombre, mirando la vida desde la perspectiva de sus
+									experiencias personales más profundas.</p>
+							</div>
+						</div>
+						<div class="box">
+							<div class="img">
+								<img th:src="@{/icons/libro2.jpg}"width="400px" height="400px" alt="libro2">
+							</div>
+							<div class="text">
+								<h3>Harry Potter la piedra de filosofa</h3>
+								<p>El día de su cumpleaños, Harry Potter descubre que es
+									hijo de dos conocidos hechiceros, de los que ha heredado
+									poderes mágicos. Debe asistir a una famosa escuela de magia y
+									hechicería, donde entabla una amistad con dos jóvenes que se
+									convertirán en sus compañeros de aventura.</p>
+							</div>
+						</div>
+						<div class="box">
+							<div class="img">
+								<img th:src="@{/icons/libro3.jpg}" width="400px" height="400px" alt="libro3">
+							</div>
+							<div class="text">
+								<h3>Caroline</h3>
+								<p>Coraline es una novela de fantasía oscura, escrita por el
+									escritor británico Neil Gaiman, publicado en 2002 por
+									Bloomsbury y Harper Collins.​Se le entregó en el 2003 el Premio
+									Hugo para Mejor Novela.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<p>
+			<h1 class="text-center m-3">Libros Reconocidos Premio Nobel de
+				Literatura 2022</h1>
+			<div class="row">
+				<h5>LE JEUNE HOMME</h5>
+				<div class="col-xs-12 col-sm-4 col-md-3 text-center">
+					<img th:src="@{/icons/home1.jpg}"  alt="NOBEL1"
+						class="img-fluid mb-4 mb-md-0  w-50">
+				</div>
+				<div class="col-sm-12 col-md-8 text-justify lead">
+					AUTOR: ANNIE ERNAUX
+					<p>Un texto inédito en el que la autora relata una aventura
+						vivida con un hombre treinta años menor que ella. Explica cómo
+						esta experiencia le permitió dar un paso adelante en su escritura.
+
+					
+				</div>
+
+
+				<h5>LA OCUPACIÓN</h5>
+				<div class="col-xs-12 col-sm-4 col-md-3 text-center">
+					<img th:src="@{/icons/home3.jpg}"  alt="NOBEL2"
+						class="img-fluid mb-4 mb-md-0 w-50">
+				</div>
+				<div class="col-sm-12 col-md-8 text-justify lead">
+					AUTOR: ANNIE ERNAUX
+					<p>Fui yo quien dejó a W., tras una relación de seis años. Por
+						cansancio pero también al no verme capaz de cambiar mi libertad,
+						recuperada tras dieciocho años de matrimonio, por una vida en
+						común que él deseaba fervientemente desde el principio. Unos meses
+						después. Me anunció que se iba a vivir con una mujer cuyo nombre
+						no quiso ni siquiera decirme. A partir de ese momento caí presa de
+						los celos. La imagen y la existencia de la otra mujer se convirtió
+						en una obsesión, como si hubiera penetrado dentro de mí. Esa es la
+						ocupación que describo aquí.
+				</div>
+
+				<h5>A ORILLAS DEL MAR</h5>
+				<div class="col-xs-12 col-sm-4 col-md-3 text-center">
+					<img th:src="@{/icons/home4.jpg}"  alt="NOBEL3"
+						class="img-fluid mb-4 mb-md-0 w-50">
+				</div>
+				<div class="col-sm-12 col-md-8 text-justify lead">
+					AUTOR: Abdulrazak Gurnah
+					<p>Huyendo de la mítica isla de Zanzíbar, tierra de mercaderes
+						de perfumes y especias acunada por los monzones, Saleh Omar, un
+						comerciante de 65 años, llega al aeropuerto de Gatwick con una
+						caja de caoba llena de incienso y un pasaporte falso. Para
+						comunicarse con él, los servicios sociales recurren a Latif
+						Mahmud, un poeta experto en suajili, profesor y exiliado
+						voluntario que vive apaciblemente en un apartamento de Londres.
+						Cuando los dos hombres se encuentran en una pequeña ciudad junto
+						al mar, una larga historia de amores y traiciones, seducciones y
+						decepción, azarosos desplazamientos y litigios iniciada mucho
+						tiempo atrás empieza a desenmarañarse.
+				</div>
+
+
+
+				<h1 class="text-center m-3">Recordemos porque es importante la
+					lectura</h1>
+				<section class="text-center m-3">
+					<iframe width="1060" height="515"
+						src="https://www.youtube.com/embed/jFklK9CERHI"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+				</section>
+
+				<h1 class="text-center m-3">Donde nos ubicamos</h1>
+				<section class="map top">
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.731005142456!2d-77.0812736851879!3d-11.993105691503134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105ce5e0372a1a1%3A0x9992dce43c810ae0!2sI.E.%20Palmas%20Reales!5e0!3m2!1ses-419!2spe!4v1671125630028!5m2!1ses-419!2spe"
+						width="600" height="450" style="border: 0;" allowfullscreen=""
+						loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</section>
+			</div>
+		</div>
+	</div>
+
+
+	<!--OTRO SCRIPTS PARA PAGINAS-->
+	<th:block layout:fragment="page-scripts">
+
+	</th:block>
+	
+		<!--::::Pie de Pagina::::::-->
+	<footer class="pie-pagina">
+		<div class="grupo-1">
+			<div class="box">
+				<figure>
+					<a href="#"> <img src="../static/icons/logo.png" alt="Logo">
+					</a>
+				</figure>
+			</div>
+			<div class="box">
+				<h2>SOBRE NOSOTROS</h2>
+				<p>Telefono: (+51) 250-3622</p>
+				<p>Línea de atención</p>
+				<p>(De lunes a viernes 8 am a 4:30 pm)</p>
+
+			</div>
+			<div class="box">
+				<h2>SIGUENOS</h2>
+
+			</div>
+		</div>
+		<div class="grupo-2">
+			<small>&copy; 2022 <b>DS2</b> - Todos los Derechos Reservados
+				UCH.
+			</small>
+		</div>
+	</footer>
+
+</body>
+</html>

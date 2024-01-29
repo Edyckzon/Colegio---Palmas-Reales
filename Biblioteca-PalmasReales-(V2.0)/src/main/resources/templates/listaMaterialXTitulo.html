@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<title>Materiales</title>
+</head>
+<body class="bg-warning">
+
+	<div class="container-fluid" layout:fragment="page-content">
+	
+	<!--BOTONES-->
+		<div class="bg-dark p-3 mt-2 rounded-3">
+			<h2 class="text-center text-light">MATERIAL ENCONTRADO</h2>
+			<a th:href="@{/materiales}" class="btn btn-primary m-2">
+			 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace-fill" viewBox="0 0 16 16">
+                 <path d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z"/>
+             </svg> Regresar</a> 
+		</div>
+		
+		
+		<!--TABLA-->
+		<table class="table table-dark table-striped mt-2">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>TITULO</th>
+					<th>PUBLICACION</th>
+					<th>STOCK</th>
+					<th>PAGINAS</th>
+					<th>CATEGORIA</th>
+					<th>AUTOR</th>
+					<th>EDITORIAL</th>
+					<th>ACCIONES</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="mat:${listaMaterialXTitulo}">
+					<td th:text="${mat.id_material}"></td>
+					<td th:text="${mat.titulo}"></td>
+					<td th:text="${mat.fecha_publicacion}"></td>
+					<td th:text="${mat.stock}"></td>
+					<td th:text="${mat.paginas}"></td>
+					<td th:text="${mat.categoriaM.nombre}"></td>
+					<td th:text="${mat.autor.nombres}"></td>
+					<td th:text="${mat.editorial.nombre}"></td>
+					<td><a class="btn btn-warning"
+						th:href="@{/editarMaterial/{id} (id=${mat.id_material})}">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                           <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                           <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                         </svg></a>
+                         
+                        <a class="btn btn-danger"
+						th:href="@{/borrarMaterial/{id} (id=${mat.id_material})}">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                           <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                         </svg></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!--OTRO SCRIPTS PARA PAGINAS-->
+	<th:block layout:fragment="page-scripts">
+
+	</th:block>
+
+</body>
+</html>

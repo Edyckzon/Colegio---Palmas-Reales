@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="head">
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Biblioteca</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" th:href="@{/icons/biblioteca.png}" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="d-flex" id="wrapper"> 
+		<!-- Sidebar-->
+		<div class="border-end bg-dark" id="sidebar-wrapper">
+			
+			<div class="sidebar-heading border-bottom  text-center " >
+				<a class="text-warning" th:href="@{/}" style="text-decoration:none; font-weight: bold;"><img id="logo" alt="logo-Las Palmas Reales" th:src="@{/icons/biblioteca-en-linea.png}"  width="80"><br>
+				Biblioteca <br>Palmas Reales</a>
+			</div>
+			<div class="list-group list-group-flush ">
+				<a
+					class="list-group-item list-group-item-action list-group-item-warning p-3"
+					th:href="@{/alumnos}">Alumnos</a>
+				<a
+					class="list-group-item list-group-item-action list-group-item-warning p-3"
+					th:href="@{/encargados}">Encargados</a>
+				<a
+					class="list-group-item list-group-item-action list-group-item-warning p-3"
+					th:href="@{/distritos}">Distritos</a>
+				<a
+					class="list-group-item list-group-item-action list-group-item-warning p-3"
+					th:href="@{/autores}">Autores</a>	
+				<a
+					class="list-group-item list-group-item-action list-group-item-warning p-3"
+					th:href="@{/editoriales}">Editoriales</a>
+				<a
+					class="list-group-item list-group-item-action list-group-item-warning p-3"
+					th:href="@{/categorias}">Categorías</a>
+				<a
+					class="list-group-item list-group-item-action list-group-item-warning p-3"
+					th:href="@{/materiales}">Materiales</a>
+				<a
+					class="list-group-item list-group-item-action list-group-item-warning p-3"
+					th:href="@{/prestamos}">Préstamos</a>
+				<a
+					class="list-group-item list-group-item-action list-group-item-warning p-3"
+					th:href="@{/sanciones}">Sanciones</a>
+				<a
+					class="list-group-item list-group-item-action list-group-item-warning p-3"
+					th:href="@{/devoluciones}">Devoluciones</a>
+			</div>
+			
+		</div>
+		<!-- Page content wrapper-->
+		<div id="page-content-wrapper">
+			<!-- Top navigation-->
+			<nav
+				class="navbar navbar-expand-lg navbar-light bg-dark  border-bottom">
+				<div class="container-fluid">
+					<button class="btn btn-primary" id="sidebarToggle">&#8801;</button>
+					<button class="navbar-toggler" type="button"
+						data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+							<li class="nav-item active"><a class="nav-link text-light" href="#!"><b>Encargado de Biblioteca</b></a></li>
+							<!-- <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+							<li class="nav-item dropdown"><a
+								class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+								role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false"></a>
+								<div class="dropdown-menu dropdown-menu-end"
+									aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="#!">Action</a> <a
+										class="dropdown-item" href="#!">Another action</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#!">Something else here</a>
+								</div></li> -->
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!-- Page content-->
+			<div class="container-fluid" layout:fragment="page-content">
+			
+			
+			</div>
+		</div>
+	</div>
+	<!-- Bootstrap core JS-->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<!-- Core theme JS-->
+	<script th:src="@{/js/scripts.js}"></script>
+
+
+	<!--OTRO SCRIPTS PARA PAGINAS-->
+	<th:block layout:fragment="page-scripts">
+
+	</th:block>
+</body>
+</html>

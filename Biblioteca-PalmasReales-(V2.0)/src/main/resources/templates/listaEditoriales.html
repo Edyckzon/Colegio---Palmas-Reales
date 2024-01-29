@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<title></title>
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+<body class="bg-warning">
+
+	<div class="container  bg-warning" layout:fragment="page-content">
+
+		<div class="bg-dark p-3 mt-2 rounded-3">
+			<h2 class="text-center text-light">LISTADO DE EDITORIALES</h2>
+			<a th:href="@{/}" class="btn btn-primary m-2">Atras</a>
+		    <a
+				th:href="@{/nuevaEditorial}" class="btn btn-success text-light ml-5">Nuevo</a>
+		</div>
+
+		<table class="table table-dark table-striped mt-2">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>NOMBRE</th>
+					<th>ACCIONES</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="edit:${listaEditoriales}">
+					<td th:text="${edit.id_editorial}"></td>
+					<td th:text="${edit.nombre}"></td>
+					<td><a class="btn btn-warning"
+						th:href="@{/editarEditorial/{id} (id=${edit.id_editorial})}">Editar</a> <a
+						class="btn btn-danger"
+						th:href="@{/borrarEditorial/{id} (id=${edit.id_editorial})}">Borrar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!--OTRO SCRIPTS PARA PAGINAS-->
+	<th:block layout:fragment="page-scripts">
+
+	</th:block>
+
+</body>
+</html>

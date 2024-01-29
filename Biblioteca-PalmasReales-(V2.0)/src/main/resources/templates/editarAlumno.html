@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body class="bg-warning">
+
+	<div class="container-fluid" layout:fragment="page-content">
+
+		<br>
+		<div class="offset-md-3">
+			<a class="btn btn-primary mb-3" th:href="@{/alumnos}">Atrás</a>
+		</div>
+
+		<br>
+		<h2 class="text-center">Editar Alumno</h2>
+		<br>
+
+		<form th:action="@{/guardarAlumno}" th:object="${alumno}"
+			method="post" autocomplete="off">
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label">DNI:</label> <input type="text"
+					maxlength="11" class="form-control" th:field="*{dni_alumno}"
+					>
+			</div>
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label">Nombres:</label> <input type="text"
+					maxlength="50" class="form-control" th:field="*{nombres}"
+					placeholder="Ingrese nombres" required="required">
+			</div>
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label">Apellidos:</label> <input type="text"
+					maxlength="50" class="form-control" th:field="*{apellidos}"
+					placeholder="Ingrese apellidos" required="required">
+			</div>
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label">Sexo</label><br> 
+				<select
+					th:field="*{sexo}" class="form-select"
+					aria-label="Default select example" required="required">
+					<option th:value="0" th:text="Selecionar"></option>
+					<option th:value="M" th:text="Masculino"></option>
+					<option th:value="F" th:text="Femenino"></option>
+				</select>
+			</div>
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label">Edad:</label> <input type="number"
+					maxlength="5" class="form-control" th:field="*{edad}"
+					placeholder="Ingrese edad" required="required">
+			</div>
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label">Correo:</label> <input type="email"
+					maxlength="50" class="form-control" th:field="*{correo}"
+					placeholder="Ingrese correo" required="required">
+			</div>
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label">Teléfono:</label> <input type="text"
+					maxlength="9" class="form-control" th:field="*{telefono}"
+					placeholder="Ingrese teléfono" required="required">
+			</div>
+
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label">Dirección:</label> <input type="text"
+					class="form-control" th:field="*{direccion}"
+					placeholder="Ingrese dirección" required="required">
+			</div>
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label">Distrito</label><br> <select
+					th:field="*{distrito}" class="form-select"
+					aria-label="Default select example" name="sexo" required="required">
+					<option th:each="distrito:${listaDistritos}"
+						th:value="${distrito.id_distrito}"
+						th:text="${distrito.nom_distrito}"></option>
+
+				</select>
+			</div>
+
+			<div class="d-flex justify-content-center">
+				<input type="submit" value="Guardar" class="btn btn-success">
+			</div>
+
+		</form>
+	</div>
+
+	<!--OTRO SCRIPTS PARA PAGINAS-->
+	<th:block layout:fragment="page-scripts">
+
+	</th:block>
+
+</body>
+</html>

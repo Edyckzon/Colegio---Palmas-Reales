@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body class="bg-warning">
+
+	<div class="container-fluid bg-warning" layout:fragment="page-content">
+
+		<br>
+		<div class="offset-md-3">
+			<a class="btn btn-primary mb-3" th:href="@{/sanciones}">Atrás</a>
+		</div>
+
+		<br>
+		<h2 class="text-center">Editar Sancion</h2>
+		<br>
+
+		<form th:action="@{/guardarSancion}" th:object="${sanciones}"
+			method="post" autocomplete="off">
+			
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label"> ID </label> <input type="number" readonly="readonly"
+					maxlength="11" class="form-control" th:field="*{id_sancion}">
+			</div>
+
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label"> Fecha Inicio: </label> <input type="date"
+					maxlength="11" class="form-control" th:field="*{fecha_inicio}">
+			</div>
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label"> Fecha Final: </label> <input type="date"
+					maxlength="11" class="form-control" th:field="*{fecha_fin}">
+			</div>
+
+
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label"> Alumno</label> <select
+					th:field="*{alumno}" class="form-select">
+					<option th:each="alumno:${listarAlumnos}"
+						th:value="${alumno.dni_alumno}"
+						th:text="${alumno.nombres} +' '+${alumno.apellidos}">
+				</select>
+			</div>
+
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label"> Estado:</label> <select
+					th:field="*{estadoSancion}" class="form-select">
+					<option th:each="estadoSancion:${listaEstados}"
+						th:value="${estadoSancion.id_estado_sancion}"
+						th:text="${estadoSancion.estado}">
+				</select>
+
+			</div>
+
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label">Tipo de Sancion</label> <select
+					th:field="*{tipoSancion}" class="form-select">
+					<option th:each="estadoSancion:${listarTipos}"
+						th:value="${estadoSancion.id_tipo_sancion}"
+						th:text="${estadoSancion.descripcion}">
+				</select>
+
+			</div>
+
+
+			<div class="mb-3 col-md-6 offset-md-3">
+				<label class="form-label">Encargado</label> <select
+					th:field="*{encargado}" class="form-select">
+					<option th:each="encargado:${listaEncargados}"
+						th:value="${encargado.dni_encargado}"
+						th:text="${encargado.nombres}+' '+${encargado.apellidos}">
+				</select>
+
+			</div>
+
+
+			<div class="d-flex justify-content-center">
+				<input type="submit" value="Guardar" class="btn btn-success">
+			</div>
+
+		</form>
+	</div>
+
+	<!--OTRO SCRIPTS PARA PAGINAS-->
+	<th:block layout:fragment="page-scripts">
+
+	</th:block>
+
+</body>
+</html>

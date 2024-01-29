@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<title></title>
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+<body class="bg-warning">
+
+	<div class="container-fluid" layout:fragment="page-content">
+
+		<!--BOTONES-->
+		<div class="bg-dark p-3 mt-2 rounded-3">
+			<h2 class="text-center text-light">LISTADO DE ALUMNOS</h2>
+			<a th:href="@{/}" class="btn btn-primary m-2">Atras</a> <a
+				th:href="@{/nuevoAlumno}" class="btn btn-success text-light ml-5">Nuevo</a>
+			<!--FORMULARIO DE BUSQUEDA-->
+			<form class="d-flex " name="formListaDNI" method="get"
+				th:action="@{/listaAlumnoxDNI/}" autocomplete="off">
+				<div class="m-2 col-md-3 ">
+					<input type="number" name="filtro" class="form-control mb-2"
+						required="required" placeholder="Filtro DNI">
+				</div>
+				<div class="m-3 col-md-3 d-flex justify-content-start">
+					<input type="submit" value="Consultar" class="btn btn-success"
+						th:href="@{/listaAlumnoxDNI/{dni}}">
+				</div>
+			</form>
+		</div>
+		<br>
+
+
+		<!--TABLA-->
+		<table class="table table-dark table-striped mt-2">
+			<thead>
+				<tr>
+					<th>DNI</th>
+					<th>NOMBRES</th>
+					<th>APELLIDOS</th>
+					<th>SEXO</th>
+					<th>EDAD</th>
+					<th>CORREO</th>
+					<th>TELEFONO</th>
+					<th>DIRECCION</th>
+					<th>DISTRITO</th>
+					<th>ACCIONES</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="alu:${listaAlumnos}">
+					<td th:text="${alu.dni_alumno}"></td>
+					<td th:text="${alu.nombres}"></td>
+					<td th:text="${alu.apellidos}"></td>
+					<td th:text="${alu.sexo}"></td>
+					<td th:text="${alu.edad}"></td>
+					<td th:text="${alu.correo}"></td>
+					<td th:text="${alu.telefono}"></td>
+					<td th:text="${alu.direccion}"></td>
+					<td th:text="${alu.distrito.nom_distrito}"></td>
+					<td><a class="btn btn-warning"
+						th:href="@{/editarAlumno/{id} (id=${alu.dni_alumno})}">Editar</a>
+						<a class="btn btn-danger"
+						th:href="@{/borrarAlumno/{id} (id=${alu.dni_alumno})}">Borrar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!--OTRO SCRIPTS PARA PAGINAS-->
+	<th:block layout:fragment="page-scripts">
+
+	</th:block>
+
+</body>
+</html>
